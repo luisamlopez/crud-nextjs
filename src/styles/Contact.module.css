@@ -1,0 +1,19 @@
+.cardHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+  background: rgb(208, 208, 208);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+}
