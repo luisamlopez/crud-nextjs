@@ -76,11 +76,6 @@ export function updateContact(contact: ContactProps, email: string) {
           alert("Contacto actualizado" + JSON.stringify(contact));
         }
       }
-      // contacts = JSON.parse(localStorage.getItem("contacts") || "{}");
-      // contacts = contacts.filter((item) => item.email !== contact.email);
-      // contacts.push(contact);
-      // localStorage.setItem("contacts", JSON.stringify(contacts));
-      // alert("Contacto actualizado" + JSON.stringify(contact));
     }
   }
   window.location.reload();
