@@ -17,3 +17,22 @@
   flex-direction: column;
   color: black;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .cardHolder {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
