@@ -29,7 +29,6 @@ export default function Form(props: FormProps) {
           id="name"
           type="text"
           placeholder="Nombre"
-          //   value={props.name ? props.name : ""}
         />
       </div>
       <div className="mb-2">

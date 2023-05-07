@@ -30,13 +30,16 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <h1> Lista de Contactos </h1>
-        <button
-          type="button"
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          onClick={() => setShowModal(true)}
-        >
-          Agregar
-        </button>
+        {contacts.length > 0 && (
+          <button
+            type="button"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={() => setShowModal(true)}
+          >
+            Agregar
+          </button>
+        )}
+
         <Modal
           isVisible={showModal}
           onClose={() => {
@@ -44,16 +47,21 @@ export default function Home() {
           }}
           isEditing={false}
         />
+        {contacts.length === 0 && (
+          <div className={styles.noItems}>
+            <h5 className="mb-1 text-xl font-medium text-black-900 dark:text-black align-middle text-center">
+              No hay contactos
+            </h5>
+            <button
+              type="button"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={() => setShowModal(true)}
+            >
+              Agregar
+            </button>
+          </div>
+        )}
         <div className={styles.grid}>
-          {contacts.length === 0 && (
-            <div>
-              <div>
-                <h5 className="mb-1 text-xl font-medium text-black-900 dark:text-black align-middle text-center">
-                  No hay contactos
-                </h5>
-              </div>
-            </div>
-          )}
           {contacts.map((contact, i) => (
             <Contact
               name={contact.name}

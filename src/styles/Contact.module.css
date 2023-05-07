@@ -5,9 +5,10 @@
   flex-direction: column;
   width: 100%;
   margin-top: 2rem;
-  background: rgb(208, 208, 208);
+  background: whitesmoke;
   border-radius: 4px;
   padding: 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .cardInfo {
