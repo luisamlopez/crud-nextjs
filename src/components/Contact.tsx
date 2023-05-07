@@ -1,6 +1,7 @@
 import { useState } from "react";
 import style from "../styles/Contact.module.css";
 import Modal from "./Modal";
+import { deleteContact } from "../pages/api/contactsCRUD";
 
 export interface ContactProps {
   name: string;
@@ -33,12 +34,16 @@ export default function Contact({ name, email, phone, editing }: ContactProps) {
         >
           Editar
         </button>
-        <a
-          href="#"
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+        <button
+          type="button"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          onClick={() => {
+            const contact: ContactProps = { name, email, phone };
+            deleteContact(contact);
+          }}
         >
           Eliminar
-        </a>
+        </button>
       </div>
       <Modal
         isVisible={showModal}

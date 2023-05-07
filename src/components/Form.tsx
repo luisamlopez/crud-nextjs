@@ -1,3 +1,8 @@
+import {
+  ContactProps,
+  addContact,
+  updateContact,
+} from "@/pages/api/contactsCRUD";
 export interface FormProps {
   name?: string;
   email?: string;
@@ -62,16 +67,17 @@ export default function Form(props: FormProps) {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="button"
           onClick={() => {
+            const name = (document.getElementById("name") as HTMLInputElement)
+              .value;
+            const email = (document.getElementById("email") as HTMLInputElement)
+              .value;
+            const phone = (document.getElementById("phone") as HTMLInputElement)
+              .value;
+
             if (!props.isEditing) {
-              const name = (document.getElementById("name") as HTMLInputElement)
-                .value;
-              const email = (
-                document.getElementById("email") as HTMLInputElement
-              ).value;
-              const phone = (
-                document.getElementById("phone") as HTMLInputElement
-              ).value;
               AgregarContacto(name, email, phone);
+            } else {
+              updateContact({ name, email, phone }, props.email?.toString()!);
             }
           }}
         >
@@ -83,14 +89,5 @@ export default function Form(props: FormProps) {
 }
 
 function AgregarContacto(name: string, email: string, phone: string) {
-  /* Agrega el contacto al localStorage */
-  const contact = {
-    name,
-    email,
-    phone,
-  };
-  const contacts = JSON.parse(localStorage.getItem("contacts") || "[]");
-  contacts.push(contact);
-  localStorage.setItem("contacts", JSON.stringify(contacts));
-  window.location.reload();
+  addContact({ name, email, phone });
 }

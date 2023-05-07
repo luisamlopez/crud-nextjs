@@ -16,6 +16,7 @@
   align-items: center;
   flex-direction: column;
   color: black;
+  text-align: center;
 }
 
 .buttons {
@@ -34,5 +35,9 @@
 
   .buttons {
     flex-direction: column;
+  }
+
+  .cardInfo {
+    word-break: break-all;
   }
 }
