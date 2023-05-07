@@ -1,16 +1,9 @@
 import { useState } from "react";
 import style from "../styles/Contact.module.css";
 import Modal from "./Modal";
-import { deleteContact } from "../pages/api/contactsCRUD";
+import { ContactProps, deleteContact } from "../pages/api/contactsCRUD";
 
-export interface ContactProps {
-  name: string;
-  email: string;
-  phone: string;
-  editing?: boolean;
-}
-
-export default function Contact({ name, email, phone, editing }: ContactProps) {
+export default function Contact({ name, email, phone }: ContactProps) {
   const [showModal, setShowModal] = useState(false);
   return (
     <div className={style.cardHolder}>
